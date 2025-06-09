@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Все книги</title>
+</head>
+
+<body>
+    <h1>Все книги</h1>
+
+    {% if items %}
+    <ul>
+        {% for book in items %}
+        <li>
+            {{ loop.index }}. {{ book.title }} — {{ book.pages }} стр.
+            (автор: <a href="/authors/{{ book.author.id }}">{{ book.author.name }}</a>)
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Книг нет.</p>
+    {% endif %}
+
+    <p><a href="/">На главную</a></p>
+
+</body>
+
+</html>
